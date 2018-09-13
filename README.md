@@ -2,7 +2,9 @@
 
 ---
 
-# svelte app
+# Svelte ARIA Accordion
+
+An Accordion component build in Svelte based on WAI-ARIA authoring practices
 
 This is a project template for [Svelte](https://svelte.technology) apps. It lives at https://github.com/sveltejs/template.
 
