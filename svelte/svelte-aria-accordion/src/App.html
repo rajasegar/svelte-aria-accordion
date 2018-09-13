@@ -1,0 +1,33 @@
+<h1>ARIA-Accoridion - An accordion component in Svelte.js based on WAI-ARIA authoring practices.</h1>
+<Accordion toggle="true" multiple="true">
+  <AccordionPanel title="Personal Information" active="true">
+    <Dummy/>
+  </AccordionPanel>
+
+  <AccordionPanel title="Billing Address">
+    <Dummy/>
+  </AccordionPanel>
+
+  <AccordionPanel title="Shipping Address">
+    <Dummy/>
+  </AccordionPanel>
+</Accordion>
+
+<style>
+h1 {
+  color: purple;
+}
+</style>
+
+<script>
+import Accordion from './Accordion.html';
+import AccordionPanel from './AccordionPanel.html';
+import Dummy from './Dummy.html';
+
+export default {
+  components: { Accordion,  AccordionPanel, Dummy },
+
+  
+  
+}
+</script>

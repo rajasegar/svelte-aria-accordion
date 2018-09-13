@@ -1,0 +1,105 @@
+<dt role="heading" aria-level="3">
+<button aria-expanded="{ariaExpanded}"
+        class="Accordion-trigger"
+        aria-controls="sect1"
+        id="accordion1id"
+        type="button"
+        on:click="activate()">
+
+  <span class="Accordion-title">
+    {title}
+  </span>
+  <span class="Accordion-icon"></span>
+</button>
+</dt>
+
+<dd id="sect1"
+    role="region"
+    aria-labelledby="accordion1id"
+    class="Accordion-panel" hidden={!active}>
+<div>
+  <slot></slot>
+</div>
+</dd>
+
+<style>
+.Accordion-trigger {
+   background: none;
+   border: 0;
+   border-bottom: 1px solid hsl(0, 0%, 82%);
+   color: hsl(0, 0%, 13%);
+   display: block;
+   font-size: 1rem;
+   font-weight: normal;
+   margin: 0;
+   padding: 1em 1.5em;
+   position: relative;
+   text-align: left;
+   width: 100%;
+ }
+
+ 
+
+ .Accordion-trigger:focus,
+ .Accordion-trigger:hover {
+   background: hsl(0, 0%, 93%);
+ }
+
+ .Accordion-title {
+   display: block; /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/8295099/ */
+   pointer-events: none;
+ }
+
+ .Accordion-icon {
+   border: solid hsl(0, 0%, 62%);
+   border-width: 0 2px 2px 0;
+   height: .5rem;
+   pointer-events: none;
+   position: absolute;
+   right: 1.5em;
+   top: 50%;
+   transform: translateY(-60%) rotate(45deg);
+   width: .5rem;
+ }
+
+ .Accordion-trigger:focus .Accordion-icon,
+ .Accordion-trigger:hover .Accordion-icon {
+   border-color: hsl(0, 0%, 13%);
+ }
+
+ .Accordion-trigger[aria-expanded="true"] .Accordion-icon {
+   transform: translateY(-50%) rotate(-135deg);
+ }
+.Accordion-panel {
+  margin: 0;
+  padding: 1em 1.5em;
+  border-bottom: 1px solid hsl(0, 0%, 82%);
+}
+
+ /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
+ .Accordion-panel[hidden] {
+   display: none;
+ }
+</style>
+
+
+<script>
+export default {
+
+  data: function() {
+    return {
+      ariaExpanded: false,
+      active: false
+    };
+  },
+
+  methods: {
+    activate() {
+      const { active, ariaExpanded } = this.get();
+      this.set({active: !active, ariaExpanded: !ariaExpanded });
+    }
+  }
+
+
+}
+</script>
